@@ -8,11 +8,12 @@ const Container = styled.div`
   min-width: 280px;
   background-color: white;
   height: 100vh;
+  box-shadow: 0px 8px 8px 0px #f5f6f8;
 `;
 
 const Logo = styled.div`
   font-weight: 600;
-  size: 20px;
+  font-size: 20px;
   line-height: 28px;
   color: rgba(24, 144, 255, 1);
   padding: 16px 24px;
@@ -35,17 +36,19 @@ Profile.Image = styled.img`
   border-radius: 50%;
   margin-right: 16px;
 `;
+
 Profile.Name = styled.div`
   width: 168px;
   font-weight: 600;
-  size: 14px;
+  font-size: 14px;
   line-height: 20px;
   color: ${({ cl }) => cl};
 `;
+
 Profile.Email = styled.div`
   width: 168px;
   font-weight: 500;
-  size: 12px;
+  font-size: 12px;
   line-height: 20px;
   color: ${({ cl }) => cl};
 `;
@@ -54,6 +57,7 @@ Profile.Email = styled.div`
 const Menu = styled.ul`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 const MenuItem = styled.li`
@@ -66,6 +70,12 @@ const MenuItem = styled.li`
   padding-right: 24px;
   text-decoration: none;
   color: ${({ cl }) => cl};
+  ${({ isLast }) =>
+    isLast &&
+    `
+    border-top: 1px solid rgba(222, 225, 227, 1);
+    padding-top: 18px;
+  `}
 `;
 
 MenuItem.Title = styled.div`
@@ -73,7 +83,7 @@ MenuItem.Title = styled.div`
   align-items: center;
   flex: 1;
   font-weight: 500;
-  size: 14px;
+  font-size: 14px;
   line-height: 20px;
   padding: 12px 0 12px 24px;
   color: #253e5f;
@@ -87,6 +97,7 @@ const LogOut = styled(Logo)`
   display: flex;
   align-items: center;
   margin-top: auto;
+  font-size: 14px;
   width: 100%;
   position: sticky;
   bottom: 0;

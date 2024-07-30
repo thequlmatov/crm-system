@@ -2,6 +2,16 @@ import React from "react";
 import { Container, Logo, LogOut, Menu, MenuItem, Profile } from "./style";
 import noImg from "../../assets/images/noUser.webp";
 
+const menuItems = [
+  "Buyurtma",
+  "Moliya",
+  "Talaba",
+  "Guruhlar",
+  "Kurslar",
+  "HR",
+  "Sozlamalar",
+];
+
 const Sidebar = () => {
   return (
     <Container>
@@ -14,27 +24,15 @@ const Sidebar = () => {
         </div>
       </Profile>
       <Menu>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Buyurtma</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Moliya</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Talaba</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Guruhlar</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Kurslar</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>HR</MenuItem.Title>
-        </MenuItem>
-        <MenuItem bgh="#F8FAFC">
-          <MenuItem.Title>Sozlamalar</MenuItem.Title>
-        </MenuItem>
+        {menuItems.map((item, index) => (
+          <MenuItem
+            key={index}
+            bgh="#F8FAFC"
+            isLast={index === menuItems.length - 1}
+          >
+            <MenuItem.Title>{item}</MenuItem.Title>
+          </MenuItem>
+        ))}
         <LogOut>Chiqish</LogOut>
       </Menu>
     </Container>
