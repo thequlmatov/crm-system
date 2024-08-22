@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import exit from "../../assets/icons/Chiqish.svg?react";
 
 const Container = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ const Container = styled.div`
   min-width: 280px;
   background-color: white;
   height: 100vh;
-  box-shadow: 0px 8px 8px 0px #f5f6f8;
+  box-shadow: 0px 0px 8px 0px #f5f6f8;
 `;
 
 const Logo = styled.div`
@@ -61,35 +62,35 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  display: flex;
-  align-items: center;
-  &:hover {
-    cursor: pointer;
-    background-color: ${({ bgh }) => bgh};
-  }
-  padding-right: 24px;
   text-decoration: none;
   color: ${({ cl }) => cl};
-  ${({ isLast }) =>
-    isLast &&
-    `
-    border-top: 1px solid rgba(222, 225, 227, 1);
-    padding-top: 18px;
-  `}
+
+  .icons {
+    margin-right: 20px;
+  }
 `;
 
 MenuItem.Title = styled.div`
+  font-weight: 500;
+  font-style: normal;
   display: flex;
   align-items: center;
   flex: 1;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  padding: 12px 0 12px 24px;
+  padding: 12px 24px 12px 24px;
   color: #253e5f;
-
   &:hover {
+    cursor: pointer;
+    background-color: ${({ bgh }) => bgh};
     color: #1890ff;
+    path {
+      fill: rgb(24, 144, 255);
+    }
+  }
+  .arrow {
+    transform: ${({ open }) => (open ? "rotate(90deg)" : "rotate(0)")};
   }
 `;
 
@@ -103,6 +104,44 @@ const LogOut = styled(Logo)`
   bottom: 0;
   border-top: 1px solid rgba(222, 225, 227, 1);
   border-bottom: 0;
+  background-color: white;
 `;
 
-export { Container, Logo, Profile, Menu, MenuItem, LogOut };
+const ExitIcon = styled(exit)`
+  margin-right: 16px;
+  path {
+    fill: #1890ff;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  height: ${({ open }) => (open ? "fit-content" : "0px")};
+  overflow: hidden;
+`;
+
+const Submenu = styled.div`
+  display: flex;
+  padding: 12px 0 12px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ bgh }) => bgh};
+    color: #1890ff;
+  }
+`;
+
+export {
+  Container,
+  Logo,
+  Profile,
+  Menu,
+  MenuItem,
+  Wrapper,
+  Submenu,
+  LogOut,
+  ExitIcon,
+};
